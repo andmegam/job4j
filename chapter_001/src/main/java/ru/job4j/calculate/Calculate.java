@@ -1,7 +1,7 @@
 package ru.job4j.calculate;
 
 /**
- * Class Calculate
+ * Class Calculate.
  *
  * @author Mashkov Andrey
  * @version 1.0
@@ -10,7 +10,7 @@ package ru.job4j.calculate;
 public class Calculate {
 
     /**
-     * Конструктор, выводит строки в консоль
+     * Конструктор, выводит строки в консоль.
      *
      * @param args массив строковых аргументов
      */

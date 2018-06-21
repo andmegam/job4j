@@ -1,5 +1,3 @@
-package ru.job4j.calculate;
-
 /**
 * Package for calculate task.
 *

@@ -15,12 +15,6 @@ public class Max {
      * @return максимальное число
      */
     public int max(int first, int second) {
-        int returnVal = 0;
-        if (first > second) {
-            returnVal = first;
-        } else if (first < second) {
-            returnVal = second;
-        }
-        return returnVal;
+        return first > second ? first : second;
     }
 }

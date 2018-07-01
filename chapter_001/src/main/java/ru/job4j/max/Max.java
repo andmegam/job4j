@@ -8,7 +8,7 @@ package ru.job4j.max;
 public class Max {
 
     /**
-     * Возвращает максимальное число.
+     * Возвращает максимальное число из двух чисел.
      *
      * @param first первое сичло.
      * @param second второе число.
@@ -16,5 +16,17 @@ public class Max {
      */
     public int max(int first, int second) {
         return first > second ? first : second;
+    }
+
+    /**
+     * Возвращает максимальное число из трех чисел.
+     *
+     * @param first первое сичло.
+     * @param second второе число.
+     * @param third третье число.
+     * @return максимальное число
+     */
+    public int max(int first, int second, int third) {
+        return this.max(this.max(first, second), third);
     }
 }

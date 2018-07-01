@@ -21,4 +21,13 @@ public class MaxTest {
         assertThat(result, is(2));
     }
 
+    /**
+     * Тестирование метода сравнения трех чисел.
+     */
+    @Test
+    public void comapreFirstSecondThird() {
+        Max maxim = new Max();
+        int result = maxim.max(1, 2, 6);
+        assertThat(result, is(6));
+    }
 }

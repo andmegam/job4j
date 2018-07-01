@@ -78,7 +78,9 @@ public class Triangle {
     private boolean exist(double ab, double ac, double bc) {
         boolean existTriangle = false;
         if (ab > 0 && ac > 0 && bc > 0) {
-            existTriangle = true;
+            if ((ab + bc > ac) && (ab + ac > bc) && (bc + ac > ab)) {
+                existTriangle = true;
+            }
         }
         return existTriangle;
     }

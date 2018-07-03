@@ -33,14 +33,4 @@ public class Board {
 
         return screen.toString();
     }
-
-    /**
-     * тест sdf.
-     *
-     * @param args sdfsdfsd.
-     */
-    public static void main(String[] args) {
-        String sd = paint(5, 4);
-        System.out.println(sd);
-    }
 }

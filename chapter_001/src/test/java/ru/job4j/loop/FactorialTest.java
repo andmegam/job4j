@@ -14,12 +14,22 @@ import org.junit.Test;
 public class FactorialTest {
 
     /**
-     * Тестирование метода подсчета факториала.
+     * Тестирование метода подсчета факториала 5.
      */
     @Test
     public void whenCalculateFactorialForFiveThenOneHundreedTwenty() {
         Factorial factorial = new Factorial();
-        int result = factorial.calc(5);
-        assertThat(result, is(120));
+        int result = factorial.calc(0);
+        assertThat(result, is(1));
+    }
+
+    /**
+     * Тестирование метода подсчета факториала 0.
+     */
+    @Test
+    public void whenCalculateFactorialForZeroThenOne() {
+        Factorial factorial = new Factorial();
+        int result = factorial.calc(0);
+        assertThat(result, is(1));
     }
 }

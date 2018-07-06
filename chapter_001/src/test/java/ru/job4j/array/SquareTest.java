@@ -1,0 +1,37 @@
+package ru.job4j.array;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import org.junit.Test;
+
+/**
+ * Класс SquareTest.
+ *
+ * @author Andrey
+ */
+public class SquareTest {
+
+    /**
+     * Test calculate 1, 2, 3.
+     */
+    @Test
+    public void whenBound3Then149() {
+        int bound = 3;
+        Square square = new Square();
+        int[] rst = square.calculate(bound);
+        int[] expect = new int[]{1, 4, 9};
+        assertThat(rst, is(expect));
+    }
+
+    /**
+     * Test calculate 1, 4, 9, 16.
+     */
+    @Test
+    public void whenBound4Then14916() {
+        int bound = 4;
+        Square square = new Square();
+        int[] rst = square.calculate(bound);
+        int[] expect = new int[]{1, 4, 9, 16};
+        assertThat(rst, is(expect));
+    }
+}

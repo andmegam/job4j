@@ -34,15 +34,16 @@ public class ArrayChar {
 
         char[] value = prefix.toCharArray();
 
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < value.length; j++) {
-                if (data[i] != value[j] && i == j) {
+        if ((data.length < value.length) || value.length == 0) {
+            result = false;
+        } else {
+            for (int i = 0; i < value.length; i++) {
+                if (data[i] != value[i]) {
                     result = false;
                     break;
                 }
             }
         }
-
         return result;
     }
 }

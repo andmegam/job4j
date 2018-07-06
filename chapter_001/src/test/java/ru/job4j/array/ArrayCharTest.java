@@ -29,7 +29,7 @@ public class ArrayCharTest {
     @Test
     public void whenNotStartWithPrefixThenFalse() {
         ArrayChar word = new ArrayChar("Hello");
-        boolean result = word.startWith("Hi");
+        boolean result = word.startWith("Hll");
         assertThat(result, is(false));
     }
 }

@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Класс TurnTest.
  *
- * @author Petr Arsentev (mailto:parsentev@yandex.ru)
+ * @author Mashkov Andrey (mailto:andmmm@mail.ru)
  * @version $Id$
  * @since 0.1
  */

@@ -18,22 +18,16 @@ public class ArrayDuplicate {
      * @return массив с уникальными значениями.
      */
     public String[] remove(String[] array) {
-        int counDuplicate = 0;
         int currentLines = array.length;
-        for (int n = 0; n < currentLines; n++) {
-            for (int i = n + 1; i < currentLines; i++) {
-                if (array[n].equals(array[i])) {
-                    counDuplicate++;
+        for (int i = 0; i < currentLines; i++) {
+            for (int j = i + 1; j < currentLines; j++) {
+                if (array[i].equals(array[j])) {
+                    array[j] = array[currentLines - j];
                     currentLines--;
-                    String tmp = array[i];
-                    for (int j = i; j < (array.length - 1); j++) {
-                        array[j] = array[j + 1];
-                        array[j + 1] = tmp;
-                    }
-                    i--;
+                    j--;
                 }
             }
         }
-        return Arrays.copyOf(array, array.length - counDuplicate);
+        return Arrays.copyOf(array, currentLines);
     }
 }

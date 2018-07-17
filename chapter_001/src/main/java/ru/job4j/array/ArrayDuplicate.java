@@ -28,6 +28,7 @@ public class ArrayDuplicate {
                 }
             }
         }
+        int vi1 = Integer.valueOf("123");
         return Arrays.copyOf(array, currentLines);
     }
 }

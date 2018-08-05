@@ -52,12 +52,10 @@ public class TrackerTest {
         tracker.add(previous);
         // Создаем новую заявку.
         Item next = new Item("test2", "testName2", 1234L);
-        // Проставляем старый id из previous, который был сгенерирован выше.
-        next.setId(previous.getId());
         // Обновляем заявку в трекере.
         tracker.replace(previous.getId(), next);
         // Проверяем, что заявка с таким id имеет новые имя test2.
-        assertThat(tracker.findById(previous.getId()).getName(), is("testName2"));
+        assertThat(tracker.findById(next.getId()).getName(), is("testName2"));
     }
 
     /**

@@ -73,15 +73,10 @@ public class Tracker {
      * @param item заявка.
      */
     public void replace(String id, Item item) {
-        Item findItem = findById(id);
-        if (findItem != null) {
-            for (int i = 0; i < this.items.length; i++) {
-                Item currItem = this.items[i];
-                if (currItem != null && currItem.equals(findItem)) {
-                    items[i] = item;
-                    break;
-                }
-
+        for (int i = 0; i < this.position; i++) {
+            if (items[i].getId().equals(id)) {
+                items[i] = item;
+                break;
             }
         }
     }
@@ -92,15 +87,11 @@ public class Tracker {
      * @param id ключ заявки.
      */
     public void delete(String id) {
-        Item findItem = findById(id);
-        if (findItem != null) {
-            for (int i = 0; i < items.length; i++) {
-                Item currItem = items[i];
-                if (currItem != null && currItem.equals(findItem)) {
-                    System.arraycopy(items, i + 1, items, i, items.length - i - 1);
-                    position--;
-                    break;
-                }
+        for (int i = 0; i < this.position; i++) {
+            if (items[i].getId().equals(id)) {
+                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
+                position--;
+                break;
             }
         }
     }
@@ -111,15 +102,7 @@ public class Tracker {
      * @return массив заявок.
      */
     public Item[] findAll() {
-        Item[] result = new Item[position];
-        int i = 0;
-        for (Item currItem : items) {
-            if (currItem != null) {
-                result[i] = currItem;
-                i++;
-            }
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**

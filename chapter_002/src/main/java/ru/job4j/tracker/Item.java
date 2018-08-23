@@ -40,7 +40,18 @@ public class Item {
         this.description = description;
         this.created = created;
     }
-
+    /**
+     * Конструрктор заявки.
+     *
+     * @param name    Наименование заявки.
+     * @param description Описание заявки.
+     */
+    public Item(String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.created = System.currentTimeMillis();
+    }
     /**
      * Устанавливает уникальный ключ заявки.
      *
@@ -66,5 +77,19 @@ public class Item {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Возвращает полную информацию о заявке.
+     *
+     * @return реквизиты заявки.
+     */
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", description='" + description + '\''
+                + ", created=" + created + '}';
     }
 }

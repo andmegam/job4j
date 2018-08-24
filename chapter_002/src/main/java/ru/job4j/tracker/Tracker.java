@@ -71,7 +71,7 @@ public class Tracker {
      *
      * @param id   уникальный ключ заявки.
      * @param item заявка.
-     * @return флаг, признак успешной замены заяки.
+     * @return флаг, признак успешной замены заявки.
      */
     public boolean replace(String id, Item item) {
         boolean replace = false;

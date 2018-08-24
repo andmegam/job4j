@@ -71,6 +71,7 @@ public class Tracker {
      *
      * @param id   уникальный ключ заявки.
      * @param item заявка.
+     * @return флаг, признак успешной замены заяки.
      */
     public boolean replace(String id, Item item) {
         boolean replace = false;
@@ -89,6 +90,7 @@ public class Tracker {
      * Удаление заявки из массива.
      *
      * @param id ключ заявки.
+     * @return флаг, признак успешного удаления заявки.
      */
     public boolean delete(String id) {
         boolean delete = false;

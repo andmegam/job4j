@@ -98,7 +98,13 @@ public class StartUI {
      */
     private void showMenu() {
         System.out.println("Меню.");
-        // добавить остальные пункты меню.
+        System.out.println("0. Add new Item");
+        System.out.println("1. Show all items");
+        System.out.println("2. Edit item");
+        System.out.println("3. Delete item");
+        System.out.println("4. Find item by Id");
+        System.out.println("5. Find items by name");
+        System.out.println("6. Exit Program");
     }
 
     /**
@@ -118,7 +124,8 @@ public class StartUI {
      */
     private void showAll() {
         System.out.println("------------ Список всех заявок --------------");
-        for (int i = 0; i < this.tracker.findAll().length; i++) {
+        Item[] allItems = this.tracker.findAll();
+        for (int i = 0; i < allItems.length; i++) {
             System.out.println(this.tracker.findAll()[i].toString());
         }
     }
@@ -128,11 +135,15 @@ public class StartUI {
      */
     private void replace() {
         System.out.println("------------ Изменение реквизитов заявки --------------");
-        String name = this.input.ask("Введите имя заявки:");
-        String desc = this.input.ask("Введите описание заявки:");
+        String name = this.input.ask("Введите имя новой заявки:");
+        String desc = this.input.ask("Введите описание новой заявки:");
         Item item = new Item(name, desc);
         String id = this.input.ask("Введите ключ заявки, которую хотите изменить:");
-        tracker.replace(id, item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Реквизиты заявки изменены.");
+        } else {
+            System.out.println("Заявка с id = " + id + " не найдена.");
+        }
     }
 
     /**
@@ -141,8 +152,12 @@ public class StartUI {
     private void delete() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите ключ заявки:");
-        tracker.delete(id);
-        System.out.println("Заявка с ключем " + id + " была удалена");
+        if (tracker.delete(id)) {
+            System.out.println("Заявка с id = " + id + " удалена.");
+        } else {
+            System.out.println("Заявка с id = " + id + " не найдена.");
+        }
+
     }
 
     /**
@@ -166,8 +181,14 @@ public class StartUI {
     private void findByName() {
         System.out.println("------------ Поиск заявок по наименованию --------------");
         String fName = this.input.ask("Введите фрагмент поиска (по наименованию):");
-        for (int i = 0; i < this.tracker.findByName(fName).length; i++) {
-            System.out.println(this.tracker.findAll()[i].toString());
+        Item[] allItems = this.tracker.findByName(fName);
+        if (allItems.length > 0) {
+            System.out.println("Список всех найденных заявок:");
+            for (int i = 0; i < allItems.length; i++) {
+                System.out.println(allItems[i].toString());
+            }
+        } else {
+            System.out.println("Заявок, в наименовании которых  содержится \"" + fName + "\" не найдено.");
         }
     }
 

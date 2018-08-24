@@ -72,14 +72,17 @@ public class Tracker {
      * @param id   уникальный ключ заявки.
      * @param item заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean replace = false;
         for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
                 item.setId(id);
                 items[i] = item;
+                replace = true;
                 break;
             }
         }
+        return replace;
     }
 
     /**
@@ -87,14 +90,17 @@ public class Tracker {
      *
      * @param id ключ заявки.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean delete = false;
         for (int i = 0; i < this.position; i++) {
             if (items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
+                delete = true;
                 break;
             }
         }
+        return delete;
     }
 
     /**

@@ -5,4 +5,4 @@
  * @version $Id$
  * @since 0.1
  */
-package pseudo;
+package ru.job4j.pseudo;

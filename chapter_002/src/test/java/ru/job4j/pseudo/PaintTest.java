@@ -44,7 +44,7 @@ public class PaintTest {
      */
     @After
     public void backOutput() {
-        System.setOut(this.stdout);
+        //System.setOut(this.stdout);
         System.out.println("execute after method");
     }
 
@@ -56,15 +56,13 @@ public class PaintTest {
         new Paint().draw(new Square());
         assertThat(
                 new String(this.out.toByteArray()),
-                is(
-                        new StringBuilder()
-                                .append("++++")
-                                .append("+     +")
-                                .append("+     +")
-                                .append("++++")
-                                .append(System.lineSeparator())
-                                .toString()
-                )
+                is(new StringBuilder()
+                        .append("++++")
+                        .append("+     +")
+                        .append("+     +")
+                        .append("++++")
+                        .append(System.lineSeparator())
+                        .toString())
         );
     }
 
@@ -76,15 +74,13 @@ public class PaintTest {
         new Paint().draw(new Triangle());
         assertThat(
                 new String(this.out.toByteArray()),
-                is(
-                        new StringBuilder()
-                                .append("    +    ")
-                                .append("  +   +  ")
-                                .append(" +     + ")
-                                .append("+++++++++")
-                                .append(System.lineSeparator())
-                                .toString()
-                )
+                is(new StringBuilder()
+                        .append("    +    ")
+                        .append("  +   +  ")
+                        .append(" +     + ")
+                        .append("+++++++++")
+                        .append(System.lineSeparator())
+                        .toString())
         );
     }
 }

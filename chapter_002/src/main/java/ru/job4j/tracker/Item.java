@@ -40,10 +40,11 @@ public class Item {
         this.description = description;
         this.created = created;
     }
+
     /**
      * Конструрктор заявки.
      *
-     * @param name    Наименование заявки.
+     * @param name        Наименование заявки.
      * @param description Описание заявки.
      */
     public Item(String name, String description) {
@@ -52,6 +53,7 @@ public class Item {
         this.description = description;
         this.created = System.currentTimeMillis();
     }
+
     /**
      * Устанавливает уникальный ключ заявки.
      *
@@ -92,4 +94,5 @@ public class Item {
                 + ", description='" + description + '\''
                 + ", created=" + created + '}';
     }
+
 }

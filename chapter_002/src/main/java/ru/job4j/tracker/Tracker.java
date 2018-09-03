@@ -48,7 +48,6 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextLong());
     }
 
-
     /**
      * Посик заявки по уникальному ключу.
      *

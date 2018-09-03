@@ -35,6 +35,7 @@ public class StartUITest {
      * Буфер для результата.
      */
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
     /**
      * Выполняет метод, до запуска теста.
      */
@@ -95,7 +96,6 @@ public class StartUITest {
         String resultString = new StringJoiner(
                 System.lineSeparator(), "",
                 System.lineSeparator())
-                .add("Меню.")
                 .add("0. Add new Item")
                 .add("1. Show all items")
                 .add("2. Edit item")
@@ -106,7 +106,6 @@ public class StartUITest {
                 .add("------------ Список всех заявок --------------")
                 .add(item1.toString())
                 .add(item2.toString())
-                .add("Меню.")
                 .add("0. Add new Item")
                 .add("1. Show all items")
                 .add("2. Edit item")
@@ -129,7 +128,6 @@ public class StartUITest {
         String resultString = new StringJoiner(
                 System.lineSeparator(), "",
                 System.lineSeparator())
-                .add("Меню.")
                 .add("0. Add new Item")
                 .add("1. Show all items")
                 .add("2. Edit item")
@@ -140,7 +138,6 @@ public class StartUITest {
                 .add("------------ Поиск заявок по наименованию --------------")
                 .add("Список всех найденных заявок:")
                 .add(item1.toString())
-                .add("Меню.")
                 .add("0. Add new Item")
                 .add("1. Show all items")
                 .add("2. Edit item")

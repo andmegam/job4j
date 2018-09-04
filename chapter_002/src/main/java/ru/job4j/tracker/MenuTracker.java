@@ -46,13 +46,17 @@ public class MenuTracker {
      *
      */
     public void fillActions() {
+        List<Integer> range = new ArrayList<>();
         this.actions.add(new AddItem(0, "0. Add new Item"));
         this.actions.add(new ShowItems(1, "1. Show all items"));
-        this.actions.add(new EditItem(2, "2. Edit item"));
-        this.actions.add(new DeleteItem(3, "3. Delete item"));
-        this.actions.add(new FindItemById(4, "4. Find item by Id"));
-        this.actions.add(new FindItemsByName(5, "5. Find items by name"));
-        this.actions.add(new ExitProgram(6, "6. Exit Program"));
+        this.actions.add(new MenuTracker.EditItem(2, "2. Edit item"));
+        this.actions.add(new MenuTracker.DeleteItem(3, "3. Delete item"));
+        this.actions.add(this.new FindItemById(4, "4. Find item by Id"));
+        this.actions.add(this.new FindItemsByName(5, "5. Find items by name"));
+        this.actions.add(this.new ExitProgram(6, "6. Exit Program"));
+        for (int i = 0; i < this.getActionsLength(); i++) {
+            range.add(i);
+        }
     }
 
     /**
@@ -89,128 +93,11 @@ public class MenuTracker {
         }
     }
 
-    /**
-     * Класс для добавления заявки.
-     */
-    private class AddItem implements UserAction {
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
-
-        /**
-         * Конструктор.
-         *
-         * @param key      ключ операции.
-         * @param menuName пункт меню.
-         */
-        AddItem(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
-        }
-
-        /**
-         * Выполнение операции.
-         *
-         * @param input   объект типа Input
-         * @param tracker объект типа Tracker
-         */
-        @Override
-        public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Добавление новой заявки --------------");
-            String name = input.ask("Введите имя заявки:");
-            String desc = input.ask("Введите описание заявки:");
-            Item item = new Item(name, desc);
-            tracker.add(item);
-            System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-        }
-    }
-
-    /**
-     * Класс для отображение всех завок.
-     */
-    private class ShowItems implements UserAction {
-
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
-
-        /**
-         * Конструктор.
-         *
-         * @param key      ключ операции.
-         * @param menuName пункт меню.
-         */
-        ShowItems(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
-        }
-
-        /**
-         * Выполнение операции.
-         *
-         * @param input   объект типа Input
-         * @param tracker объект типа Tracker
-         */
-        @Override
-        public void execute(Input input, Tracker tracker) {
-            System.out.println("------------ Список всех заявок --------------");
-            Item[] allItems = tracker.findAll();
-            for (int i = 0; i < allItems.length; i++) {
-                System.out.println(tracker.findAll()[i].toString());
-            }
-        }
-    }
 
     /**
      * Класс для изменения заявки.
      */
-    private class EditItem implements UserAction {
+    private static class EditItem implements UserAction {
         /**
          * ключ операции.
          */
@@ -273,7 +160,7 @@ public class MenuTracker {
     /**
      * Класс для удаления заявки.
      */
-    private class DeleteItem implements UserAction {
+    private static class DeleteItem implements UserAction {
         /**
          * ключ операции.
          */

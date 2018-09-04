@@ -11,7 +11,6 @@ public interface Input {
     /**
      * Метод ask.
      *
-     * @param question
      * @param question - вопрос для пользователя.
      * @return то, что пользователь ввел с консоли.
      */

@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * Класс Input.
  *
@@ -15,5 +17,12 @@ public interface Input {
      * @return то, что пользователь ввел с консоли.
      */
     String ask(String question);
-
+    /**
+     * Метод ask.
+     *
+     * @param question - вопрос для пользователя.
+     * @param range - массив из меню.
+     * @return то, что пользователь ввел с консоли.
+     */
+    int ask(String question, List<Integer> range);
 }

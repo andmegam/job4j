@@ -29,6 +29,10 @@ public class MenuTracker {
      * Флаг для выхода из программы.
      */
     private boolean exit;
+    /**
+     * список номеров пунктов меню.
+     */
+    private List<Integer> menuRange = new ArrayList<>();
 
     /**
      * Конструктор.
@@ -46,7 +50,6 @@ public class MenuTracker {
      *
      */
     public void fillActions() {
-        List<Integer> range = new ArrayList<>();
         this.actions.add(new AddItem(0, "0. Add new Item"));
         this.actions.add(new ShowItems(1, "1. Show all items"));
         this.actions.add(new MenuTracker.EditItem(2, "2. Edit item"));
@@ -54,9 +57,6 @@ public class MenuTracker {
         this.actions.add(this.new FindItemById(4, "4. Find item by Id"));
         this.actions.add(this.new FindItemsByName(5, "5. Find items by name"));
         this.actions.add(this.new ExitProgram(6, "6. Exit Program"));
-        for (int i = 0; i < this.getActionsLength(); i++) {
-            range.add(i);
-        }
     }
 
     /**
@@ -86,11 +86,7 @@ public class MenuTracker {
      * @param key ключ операции.
      */
     public void select(int key) {
-        if (key >= 0 && key < this.getActionsLength()) {
-            actions.get(key).execute(this.input, this.tracker);
-        } else {
-            System.out.println("Пункта меню: " + String.valueOf(key) + " не существует.");
-        }
+        actions.get(key).execute(this.input, this.tracker);
     }
 
 
@@ -406,5 +402,24 @@ public class MenuTracker {
      */
     public boolean isExit() {
         return exit;
+    }
+
+    /**
+     * заполняет массив из пунктов меню.
+     */
+    public void fillMenuRange() {
+        for (int i = 0; i < this.actions.size(); i++) {
+            UserAction item = this.actions.get(i);
+            if (item != null) {
+                menuRange.add(item.key());
+            }
+        }
+    }
+
+    /**
+     * @return возвращает массив из номеров пунктов меню.
+     */
+    public List<Integer> getMenuRange() {
+        return menuRange;
     }
 }

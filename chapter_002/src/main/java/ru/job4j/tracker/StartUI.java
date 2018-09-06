@@ -23,7 +23,7 @@ public class StartUI {
      * @param args входящие параметры.
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 
     /**
@@ -42,9 +42,10 @@ public class StartUI {
      */
     public void init() {
         menu.fillActions();
+        menu.fillMenuRange();
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("Выберите пункт меню:")));
+            menu.select(Integer.valueOf(input.ask("Выберите пункт меню:", menu.getMenuRange())));
         } while (!menu.isExit());
     }
 }

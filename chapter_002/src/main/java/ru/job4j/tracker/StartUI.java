@@ -45,7 +45,7 @@ public class StartUI {
         menu.fillMenuRange();
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("Выберите пункт меню:", menu.getMenuRange())));
+            menu.select(input.ask("Выберите пункт меню:", menu.getMenuRange()));
         } while (!menu.isExit());
     }
 }

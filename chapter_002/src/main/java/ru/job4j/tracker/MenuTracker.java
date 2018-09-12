@@ -409,9 +409,9 @@ public class MenuTracker {
      */
     public void fillMenuRange() {
         for (int i = 0; i < this.actions.size(); i++) {
-            UserAction item = this.actions.get(i);
-            if (item != null) {
-                menuRange.add(item.key());
+            UserAction action = this.actions.get(i);
+            if (action != null) {
+                menuRange.add(action.key());
             }
         }
     }

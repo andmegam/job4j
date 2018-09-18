@@ -11,25 +11,42 @@ import java.util.List;
  */
 public class ValidateInput extends ConsoleInput {
     /**
+     * Получение данных от пользователя.
+     */
+    private final Input input;
+
+    /**
+     * Конструктор.
+     *
+     * @param input ввода данных от пользователя.
+     */
+    public ValidateInput(Input input) {
+        this.input = input;
+    }
+
+    /**
      * Метод ask.
      *
      * @param question вопрос.
      * @param range    массив пунктов меню.
      * @return выбранный пункт меню.
      */
+    @Override
     public int ask(String question, List<Integer> range) {
+        boolean invalid = true;
         int value = -1;
-        boolean invalid = false;
         do {
             try {
-                value = super.ask(question, range);
-                invalid = true;
-            } catch (NumberFormatException ex) {
+                value = this.input.ask(question, range);
+                invalid = false;
+
+            } catch (NumberFormatException nfe) {
                 System.out.println("Необходимо ввести корректные данные.");
-            } catch (MenuOutException ex) {
-                System.out.println("Необходимо ввести пункт меню с 0 до " + String.valueOf(range.size() - 2));
+            } catch (MenuOutException moe) {
+                System.out.println("Введите значение из диаппазона меню.");
             }
-        } while (!invalid);
+
+        } while (invalid);
         return value;
     }
 }

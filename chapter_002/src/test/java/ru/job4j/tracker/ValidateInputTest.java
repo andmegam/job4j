@@ -47,13 +47,27 @@ public class ValidateInputTest {
 
     /**
      * Метод тестирования валидатора.
+     * Проверка ввода числовых значений.
      */
     @Test
-    public void whenInvalidInput() throws MenuOutException {
+    public void whenInvalidInput() {
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"invalid", "1"}));
         List<Integer> range = new ArrayList<>();
         range.add(1);
         input.ask("Enter", range);
-        assertThat(this.mem.toString(), is(String.format("Необходимо ввести корректные данные.\r\n")));
+        assertThat(this.mem.toString(), is(String.format("Введите корректные данные.\r\n")));
+    }
+
+    /**
+     * Метод тестирования валидатора.
+     * Провекра пункта меню.
+     */
+    @Test
+    public void whenNoFromMenuRangeInput() {
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"12", "1"}));
+        List<Integer> range = new ArrayList<>();
+        range.add(1);
+        input.ask("Enter", range);
+        assertThat(this.mem.toString(), is(String.format("Введите значение из диапазона меню.\r\n")));
     }
 }

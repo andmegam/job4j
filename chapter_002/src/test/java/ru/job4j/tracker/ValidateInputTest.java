@@ -49,7 +49,7 @@ public class ValidateInputTest {
      * Метод тестирования валидатора.
      */
     @Test
-    public void whenInvalidInput() {
+    public void whenInvalidInput() throws MenuOutException {
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"invalid", "1"}));
         List<Integer> range = new ArrayList<>();
         range.add(1);

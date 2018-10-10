@@ -50,13 +50,13 @@ public class MenuTracker {
      *
      */
     public void fillActions() {
-        this.actions.add(new AddItem(0, "0. Add new Item"));
-        this.actions.add(new ShowItems(1, "1. Show all items"));
-        this.actions.add(new MenuTracker.EditItem(2, "2. Edit item"));
-        this.actions.add(new MenuTracker.DeleteItem(3, "3. Delete item"));
-        this.actions.add(this.new FindItemById(4, "4. Find item by Id"));
-        this.actions.add(this.new FindItemsByName(5, "5. Find items by name"));
-        this.actions.add(this.new ExitProgram(6, "6. Exit Program"));
+        this.actions.add(new AddItem(0, "Add new Item"));
+        this.actions.add(new ShowItems(1, "Show all items"));
+        this.actions.add(new MenuTracker.EditItem(2, "Edit item"));
+        this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
+        this.actions.add(this.new FindItemById(4, "Find item by Id"));
+        this.actions.add(this.new FindItemsByName(5, "Find items by name"));
+        this.actions.add(this.new ExitProgram(6, "Exit Program"));
     }
 
     /**
@@ -93,16 +93,7 @@ public class MenuTracker {
     /**
      * Класс для изменения заявки.
      */
-    private static class EditItem implements UserAction {
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
-
+    private static class EditItem extends BaseAction {
         /**
          * Конструктор.
          *
@@ -110,26 +101,7 @@ public class MenuTracker {
          * @param menuName пункт меню.
          */
         EditItem(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
+            super(key, menuName);
         }
 
         /**
@@ -156,16 +128,7 @@ public class MenuTracker {
     /**
      * Класс для удаления заявки.
      */
-    private static class DeleteItem implements UserAction {
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
-
+    private static class DeleteItem extends BaseAction {
         /**
          * Конструктор.
          *
@@ -173,26 +136,7 @@ public class MenuTracker {
          * @param menuName пункт меню.
          */
         DeleteItem(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
+            super(key, menuName);
         }
 
         /**
@@ -216,15 +160,7 @@ public class MenuTracker {
     /**
      * Класс для поиска заявки по id.
      */
-    private class FindItemById implements UserAction {
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
+    private class FindItemById extends BaseAction {
 
         /**
          * Конструктор.
@@ -233,26 +169,7 @@ public class MenuTracker {
          * @param menuName пункт меню.
          */
         FindItemById(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
+            super(key, menuName);
         }
 
         /**
@@ -280,15 +197,7 @@ public class MenuTracker {
     /**
      * Класс для отображения массива заявок, наименование которых содержит определенный фрагмент текста.
      */
-    private class FindItemsByName implements UserAction {
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
+    private class FindItemsByName extends BaseAction {
 
         /**
          * Конструктор.
@@ -297,26 +206,7 @@ public class MenuTracker {
          * @param menuName пункт меню.
          */
         FindItemsByName(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
+            super(key, menuName);
         }
 
         /**
@@ -344,17 +234,7 @@ public class MenuTracker {
     /**
      * Класс для выхода из программы.
      */
-    private class ExitProgram implements UserAction {
-
-        /**
-         * ключ операции.
-         */
-        private final int key;
-        /**
-         * Пункт меню.
-         */
-        private final String menuName;
-
+    private class ExitProgram extends BaseAction {
         /**
          * Конструктор.
          *
@@ -362,26 +242,7 @@ public class MenuTracker {
          * @param menuName пункт меню.
          */
         ExitProgram(int key, String menuName) {
-            this.key = key;
-            this.menuName = menuName;
-        }
-
-        /**
-         * @return ключ.
-         */
-        @Override
-        public int key() {
-            return key;
-        }
-
-        /**
-         * Возвращает пункт меню.
-         *
-         * @return пункт меню.
-         */
-        @Override
-        public String info() {
-            return menuName;
+            super(key, menuName);
         }
 
         /**

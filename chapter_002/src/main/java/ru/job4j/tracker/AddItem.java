@@ -3,15 +3,7 @@ package ru.job4j.tracker;
 /**
  * Класс для добавления заявки.
  */
-public class AddItem implements UserAction {
-    /**
-     * ключ операции.
-     */
-    private final int key;
-    /**
-     * Пункт меню.
-     */
-    private final String menuName;
+public class AddItem extends BaseAction {
 
     /**
      * Конструктор.
@@ -20,26 +12,7 @@ public class AddItem implements UserAction {
      * @param menuName пункт меню.
      */
     AddItem(int key, String menuName) {
-        this.key = key;
-        this.menuName = menuName;
-    }
-
-    /**
-     * @return ключ.
-     */
-    @Override
-    public int key() {
-        return key;
-    }
-
-    /**
-     * Возвращает пункт меню.
-     *
-     * @return пункт меню.
-     */
-    @Override
-    public String info() {
-        return menuName;
+        super(key, menuName);
     }
 
     /**

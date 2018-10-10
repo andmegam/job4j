@@ -21,6 +21,10 @@ import static org.hamcrest.Matchers.is;
  */
 public class ValidateInputTest {
     /**
+     *
+     */
+    private final String sls = System.lineSeparator();
+    /**
      * Буфер для результата.
      */
     private final ByteArrayOutputStream mem = new ByteArrayOutputStream();
@@ -55,7 +59,7 @@ public class ValidateInputTest {
         List<Integer> range = new ArrayList<>();
         range.add(1);
         input.ask("Enter", range);
-        assertThat(this.mem.toString(), is(String.format("Введите корректные данные.\r\n")));
+        assertThat(this.mem.toString(), is(String.format("Введите корректные данные.") + sls));
     }
 
     /**
@@ -68,6 +72,6 @@ public class ValidateInputTest {
         List<Integer> range = new ArrayList<>();
         range.add(1);
         input.ask("Enter", range);
-        assertThat(this.mem.toString(), is(String.format("Введите значение из диапазона меню.\r\n")));
+        assertThat(this.mem.toString(), is(String.format("Введите значение из диапазона меню.") + sls));
     }
 }
